@@ -16,17 +16,37 @@ function DestinationFilters({ filters, onFilterChange }) {
             </label>
             <input
               type="range"
-              min="500"
-              max="5000"
+              min="3000"
+              max="10000"
               step="100"
               value={filters.budget}
               onChange={(e) => onFilterChange('budget', parseInt(e.target.value))}
               className="w-full"
             />
             <div className="flex justify-between text-sm text-gray-600">
-              <span>$500</span>
-              <span>$5000</span>
+              <span>$3000</span>
+              <span>$10000</span>
             </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Destination Type
+            </label>
+            <select
+              value={filters.destinationType}
+              onChange={(e) => onFilterChange('destinationType', e.target.value)}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            >
+              <option value="">All Types</option>
+              <option value="mountain">Mountain</option>
+              <option value="beach">Beach</option>
+              <option value="city">City</option>
+              <option value="countryside">Countryside</option>
+              <option value="desert">Desert</option>
+              <option value="island">Island</option>
+              <option value="forest">Forest</option>
+            </select>
           </div>
 
           <div>

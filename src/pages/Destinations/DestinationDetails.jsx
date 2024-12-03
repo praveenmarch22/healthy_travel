@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, DollarSign, Activity, Utensils, Accessibility } from 'lucide-react';
 import { destinations } from '../../data/destinations';
+import PricingCard from '../../components/Destinations/PricingCard';
 
 function DestinationDetails() {
   const { id } = useParams();
@@ -28,7 +29,7 @@ function DestinationDetails() {
         Back to Destinations
       </Link>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
           <img
             src={destination.image}
@@ -47,7 +48,7 @@ function DestinationDetails() {
             <div className="flex items-center mt-2 text-blue-600">
               <DollarSign className="w-5 h-5 mr-2" />
               <span className="text-2xl font-bold">${destination.price}</span>
-              <span className="ml-2">per person</span>
+              <span className="ml-2">per person / day</span>
             </div>
           </div>
 
@@ -108,11 +109,12 @@ function DestinationDetails() {
               ))}
             </div>
           </div>
-
-          <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold">
-            Book Now
-          </button>
         </div>
+      </div>
+
+      {/* Pricing Card Section */}
+      <div className="mt-8">
+        <PricingCard basePrice={destination.price} />
       </div>
     </div>
   );
